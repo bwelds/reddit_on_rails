@@ -17,7 +17,8 @@ RedditOnRails::Application.routes.draw do
   #   resources :products
 
   resources :pages
-
+  resources :links
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
