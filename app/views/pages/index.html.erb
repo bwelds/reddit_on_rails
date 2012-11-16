@@ -4,7 +4,9 @@
 <br />
 <ul>
   <% @links.each do |link| %>
-    <li><a href="<%= link.url %>"><%= link.title %></a></li>
+    <li><a href="<%= link.url %>"><%= link.title %></a><br />
+    	<%= link_to "comments", link %>
+    </li>
   <% end %>
 </ul>
 <%= will_paginate @links %>
