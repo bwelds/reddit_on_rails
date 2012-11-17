@@ -4,8 +4,13 @@
 <br />
 <ul>
   <% @links.each do |link| %>
-    <li><a href="<%= link.url %>"><%= link.title %></a><br />
+    <li><%= link_to link.title, link.url %><br />
     	<%= link_to "comments", link %>
+    	<%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
+    	<%= link_to "-", votes_path(:vote => {:link_id => link.id, :up => false}), :method => :post %><br />
+    	Up Votes: <%= link.votes.where(:up => true).count %>
+    	Down Votes: <%= link.votes.where(:up => false).count %>
+    	Vote Count: <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %>
     </li>
   <% end %>
 </ul>
