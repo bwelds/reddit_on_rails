@@ -6,7 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+  gem 'pg'
 end
 group :production do
   gem 'pg'
@@ -44,3 +44,5 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'will_paginate', '~> 3.0'
+
+gem 'texticle', :require => 'texticle/rails'
