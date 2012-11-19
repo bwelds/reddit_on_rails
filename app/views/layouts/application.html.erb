@@ -44,7 +44,7 @@
               
               <%# user is logged in, show log out link %>
               <% if current_user.present? %>
-                <li><%= link_to "Add a link", new_link_path %></li>
+                <li><%= link_to "Submit link", new_link_path %></li>
                 <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
               <%# user is not logged in, show signup and login links %>
               <% else %>

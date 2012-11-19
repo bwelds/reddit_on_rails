@@ -11,6 +11,11 @@ end
 group :production do
   gem 'pg'
 end
+group :test do
+	gem 'database_cleaner'
+	gem 'capybara', '~> 1.1.2'
+	gem 'launchy'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
