@@ -2,7 +2,7 @@
 <br />
 <ul>
   <% @links.each do |link| %>
-    <li><%= link_to link.title, link.url %><br />
+    <li><%= link_to link.title, link.url, :target => "_blank" %><br />
     	<%= link_to "comments", link %>
     	<% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %> 
     		*
@@ -12,11 +12,13 @@
     	<% if current_user && current_user.votes.where(:link_id => link.id, :up => false).present? %> 
     		*
     	<% else %>
-    		<%= link_to "-", votes_path(:vote => {:link_id => link.id, :up => false}), :method => :post %><br />
+    		<%= link_to "-", votes_path(:vote => {:link_id => link.id, :up => false}), :method => :post %>
     	<% end %>
-    	Up Votes: <%= link.votes.where(:up => true).count %>
-    	Down Votes: <%= link.votes.where(:up => false).count %>
-    	Vote Count: <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %>
+        
+    	<strong>Votes: </strong>
+        Up: <%= link.votes.where(:up => true).count %>
+    	Down: <%= link.votes.where(:up => false).count %>
+    	Count: <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %>
     </li>
   <% end %>
 </ul>
